@@ -14,15 +14,10 @@ ehdr:
     dd 0            ; e_flags
     dw ehdrsize     ; e_ehsize
     dw phdrsize     ; e_phentsize
-    dw 1            ; e_phnum
-    dw 0            ; e_shentsize
-    dw 0            ; e_shnum
-    dw 0            ; e_shstrndx
-ehdrsize equ  $ - ehdr
-
 phdr:
-    dd 1            ; p_type
-    dd 0            ; p_offset
+    dd 1            ; e_phnum e_shentsize p_type
+    dd 0            ; e_shnum e_shstrndx  p_offset
+ehdrsize equ  $ - ehdr
     dd $$           ; p_vaddr
     dd $$           ; p_paddr
     dd filesize     ; p_filesz
