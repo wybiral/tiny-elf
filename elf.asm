@@ -32,10 +32,10 @@ phdr:
 phdrsize equ  $ - phdr
 
 _start:
-    mov dword [ehdr], 'Merr'
+    mov ecx, ehdr
+    mov dword [ecx], 'Merr'
     mov al, 4
     mov bl, 1
-    lea ecx, [ehdr]
     mov dl, 16
     int 0x80
     mov al, 1
