@@ -1,6 +1,6 @@
 # tiny-elf
 
-A tiny ELF executable (currently only 109 bytes) wishing you a Merry Christmas.
+A tiny ELF executable (currently only 101 bytes) wishing you a Merry Christmas.
 
 Build with: ```nasm elf.asm -f bin -o elf```
 
