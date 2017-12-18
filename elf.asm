@@ -8,11 +8,12 @@ ehdr:
     dw 2            ; e_type
     dw 3            ; e_machine
     dd 1            ; e_version
-    dd _start       ; e_entry
+    dd _part1       ; e_entry
     dd phdr - $$    ; e_phoff
-    dd 0            ; e_shoff
-    dd 0            ; e_flags
-    dw ehdrsize     ; e_ehsize
+_part1:
+    mov ecx, ehdr   ; e_shoff
+    jmp _part2      ; e_flags
+    db 0, 0, 0      ; e_ehsize
     dw phdrsize     ; e_phentsize
 phdr:
     dd 1            ; e_phnum e_shentsize p_type
@@ -26,8 +27,7 @@ ehdrsize equ  $ - ehdr
     dd 0x1000       ; p_align
 phdrsize equ  $ - phdr
 
-_start:
-    mov ecx, ehdr
+_part2:
     mov dword [ecx], 'Merr'
     mov al, 4
     mov bl, 1
