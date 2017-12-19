@@ -1,5 +1,3 @@
-; nasm elf.asm -f bin -o elf
-
 bits 32
 org 0x08048000
 
