@@ -6,7 +6,7 @@ Build with: ```nasm elf.asm -f bin -o elf```
 
 <img src="https://i.giphy.com/media/fiTtEYeRDpzRm/giphy.gif" width="640">
 
-## in a box ?
+## ELF in a box
 
 ```
   $ docker build -t elf .
