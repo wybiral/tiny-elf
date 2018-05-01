@@ -1,18 +1,19 @@
 bits 32
-org 0x08048000
+org 0x10000
 
 ehdr:
-    db 0x7F, "ELFy Christmas!"
-    dw 2            ; e_type
-    dw 3            ; e_machine
-    dd 1            ; e_version
-    dd _part1       ; e_entry
-    dd phdr - $$    ; e_phoff
+    db 0x7F, "ELFHello world!"
+    dw 2                ; e_type
+    dw 3                ; e_machine
+    dd 1                ; e_version
+    dd _part1           ; e_entry
+    dd phdr - $$        ; e_phoff
 _part1:
-    mov ecx, ehdr   ; e_shoff
-    jmp _part2      ; e_flags
-    db 0, 0, 0      ; e_ehsize
-    dw phdrsize     ; e_phentsize
+    mov ecx, 0x10004
+    mov al, 4
+    inc ebx
+    jmp _part2
+    dw phdrsize
 phdr:
     dd 1            ; e_phnum e_shentsize p_type
     dd 0            ; e_shnum e_shstrndx  p_offset
@@ -26,10 +27,7 @@ ehdrsize equ  $ - ehdr
 phdrsize equ  $ - phdr
 
 _part2:
-    mov dword [ecx], 'Merr'
-    mov al, 4
-    mov bl, 1
-    mov dl, 16
+    mov dl, 12
     int 0x80
     mov al, 1
     mov bl, 0
