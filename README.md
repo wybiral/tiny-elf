@@ -1,5 +1,5 @@
 # tiny-elf
 
-A tiny ELF executable (currently only 86 bytes) printing "Hello world!"
+A tiny ELF executable (currently only 61 bytes) printing "Merry xmas!"
 
 Build with: ```make```
