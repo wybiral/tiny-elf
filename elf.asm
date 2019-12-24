@@ -2,7 +2,7 @@ bits 32
 org 0x10000
 
 ehdr:
-    db 0x7F, "ELFHello world!"
+    db 0x7F, "ELFMerry xmas!", 10
     dw 2                ; e_type
     dw 3                ; e_machine
     dd 1                ; e_version
